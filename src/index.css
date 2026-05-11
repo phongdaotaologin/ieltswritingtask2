@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-brand-orange: #f1a01f;
+  --color-brand-navy: #134a85;
+  --color-brand-blue: #2098d4;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-[#F8FAFC] text-slate-800 antialiased;
+  }
+}
+
+.brand-pattern {
+  position: relative;
+  background-color: #ffffff;
+}
+
+.brand-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(30deg, #134a85 12%, transparent 12.5%, transparent 87%, #134a85 87.5%, #134a85),
+    linear-gradient(150deg, #134a85 12%, transparent 12.5%, transparent 87%, #134a85 87.5%, #134a85),
+    linear-gradient(30deg, #134a85 12%, transparent 12.5%, transparent 87%, #134a85 87.5%, #134a85),
+    linear-gradient(150deg, #134a85 12%, transparent 12.5%, transparent 87%, #134a85 87.5%, #134a85),
+    linear-gradient(60deg, #2098d4 25%, transparent 25.5%, transparent 75%, #2098d4 75.5%, #2098d4),
+    linear-gradient(60deg, #2098d4 25%, transparent 25.5%, transparent 75%, #2098d4 75.5%, #2098d4);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bulleted-feedback {
+  @apply space-y-2;
+}
+
+.bulleted-feedback::before {
+  content: "•";
+  @apply text-brand-orange mr-2;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full opacity-0 group-hover:opacity-100;
+}
+
+.writing-card {
+  @apply bg-white border border-slate-200 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300;
+}
+
+.logic-box {
+  @apply bg-[#134a85]/5 border border-[#134a85]/10 rounded-2xl p-6 transition-all;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
+
+.draggable-divider {
+  @apply w-1.5 h-full bg-slate-200 hover:bg-brand-blue cursor-col-resize flex items-center justify-center transition-colors shadow-sm;
+}
